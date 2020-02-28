@@ -13,29 +13,35 @@
                             {%endfor%}
                         </div>
                     {%else%}
-                        {{form.search(class="form-control mr-sm-2")}}
+                        {{form.search(class="form-control mr-sm-2 rounded-pill")}}
                     {%endif%}
                 </div>
               </fieldset>
               <div class="form-group">
-                    {{form.submit(class="btn btn-outline-light my-2 my-sm-0")}}
+                    {{form.submit(class="btn search")}}
               </div>
               <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
               <!-- <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button> -->
             </form>
 {%endblock searchcontent%}
 {%block content%}
+<div class='container slide-in'>
     {% for post in posts %}
-        <article class="media content-section">
+
+        <article class="media content-section shadow p-3 mb-5 bg-white home-article">
+          <button class='w-100 d-flex' onclick="window.location.href='{{ url_for('post', post_id=post.id) }}'">
           <img class="rounded-circle article-img" src="{{ url_for('static', filename='profilepics/' + post.author.image_file) }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author.username }}</a>
               <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             </div>
-            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <h2 class="article-title">{{ post.title }}</h2>
             <p class="article-content">Location: {{ post.location }}</p>
           </div>
+          </button>
         </article>
+
     {% endfor %}
+</div>
 {%endblock content%}

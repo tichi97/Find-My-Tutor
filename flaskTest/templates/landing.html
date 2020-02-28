@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{%block content%}
+<div class='container-fluid vh-100 m-0 p-0'>
+    <div class='row vh-100 container-fluid m-0 p-0'>
+        <div class='col-lg students d-flex align-items-center '>
+            <div class="w-100 align-middle text-center">
+                <h1 class='text-center p-3 '>Learn</h1>
+                <a href="{{ url_for('home')}}" ><button class='rounded-pill pl-3 pr-3 pt-2 pb-2'>Get Started</button></a>
+            </div>
+        </div>
+        <div class='col-lg teacher d-flex align-items-center '>
+            <div class="w-100 align-middle text-center">
+                <h1 class='text-center p-3 '>Teach</h1>
+                <a href="{{ url_for('register')}}" ><button class='rounded-pill pl-3 pr-3 pt-2 pb-2'>Get Started</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{%endblock content%}

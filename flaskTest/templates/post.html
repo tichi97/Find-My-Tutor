@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {%block content%}
-  <article class="media content-section">
+<div class='container'>
+  <article class="media content-section shadow p-3 mb-5 bg-white">
     <img class="rounded-circle article-img" src="{{ url_for('static', filename='profilepics/' + post.author.image_file) }}">
     <div class="media-body">
       <div class="article-metadata">
@@ -19,9 +20,10 @@
       <p class="article-content">Experience: {{ post.experience }}</p>
       <p class="article-content">Teaching Style: {{ post.content }}</p>
     </div>
-    <a class="btn btn-outline-info" href="{{ url_for('contact', post_id=post.id) }}">Contact</a>
+    <a class="btn contact" href="{{ url_for('contact', post_id=post.id) }}">Contact</a>
 
   </article>
+  </div>
 <!-- Modal -->
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -43,7 +45,8 @@
   </div>
 
   {% if title=="Contact"%}
-<div class = "content-section">
+<div class='container'>
+<div class = "content-section shadow p-5 mb-5 bg-white">
         <form method ="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
@@ -91,10 +94,10 @@
                 </div>
             </fieldset>
             <div class="form-group">
-                    {{form.submit(class="btn btn-outline-info")}}
+                    {{form.submit(class="btn send")}}
             </div>
         </form>
     </div>
-
+</div>
   {% endif %}
 {%endblock content%}

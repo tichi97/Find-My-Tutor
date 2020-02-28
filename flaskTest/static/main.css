@@ -1,24 +1,42 @@
 body {
-  background: #fafafa;
+  background: #fff;
   color: #333333;
-  margin-top: 5rem;
-}
+  background-image: url('./images/background.svg');
+  background-size: cover;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
 
-h1, h2, h3, h4, h5, h6 {
+  animation: animatedBackground 40s linear infinite;
+
+}
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -100% 0; }
+}
+/*h1, h2, h3, h4, h5, h6 {
   color: #444444;
-}
+}*/
 
-.bg-steel {
-  background-color: #5f788a;
+.navbar-brand{
+  font-family:'Patua One';
+  font-size: 1.5em;
+  color:#fff;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #073B4C;
+  letter-spacing: 1px;
 }
-
-.site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+.navbar{
+  height:4em;
+  background-color:#fff;
 }
-
-.site-header .navbar-nav .nav-link:hover {
+.site-header .navbar-nav {
   color: #ffffff;
 }
+.nav-link{
+  color:#073B4C;
+  font-weight: 'Open Sans';
+}
+
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
@@ -26,10 +44,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-section {
   background: #ffffff;
-  padding: 10px 20px;
   border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+  border-radius: 2em;
+
+}
+.home-article{
+  transition:all .4s ease-in-out;
+}
+.home-article:hover{
+  transform: scale(1.02);
 }
 
 .article-title {
@@ -40,7 +63,17 @@ a.article-title:hover {
   color: #428bca;
   text-decoration: none;
 }
+article button{
+  background-color:#fff;
+  border:none;
+  text-align: left;
+  border-style: none;
 
+
+}
+article button:focus{
+  outline:none;
+}
 .article-content {
   white-space: pre-line;
 }
@@ -77,4 +110,74 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+.navbar-collapse{
+  width:4rem!important;
+}
+.slide-in{
+  animation: 2s slide .5s ;
+  animation-fill-mode:forwards;
+  animation-iteration-count: 1;
+  transform: translateY(100%);
+  opacity: 0%;
+}
+@keyframes slide{
+  0% {
+    transform: translateY(100%);
+    opacity: 0%;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+/*====================================================*/
+.students{
+  background-color: #FF6F59;
+  color:#073B4C;
+}
+.students h1, .teacher h1{
+  font-family:'Patua One' ;
+  font-size:6em;
+}
+.students button{
+  border:1px #073B4C solid;
+  background-color: #FF6F59;
+  color:#073B4C;
+  font-size:1.2em;
+}
+
+.teacher{
+  background-color: #073B4C;
+  color: #FF6F59;
+}
+.teacher button {
+  border:1px #FF6F59 solid;
+  background-color: #073B4C;
+  color:#FF6F59;
+  font-size:1.2em;
+}
+.teacher button:hover{
+  background-color: #FF6F59;
+  color:#073B4C;
+  font-size:1.2em;
+}
+.students button:hover{
+  background-color: #073B4C;
+  color:#FF6F59;
+  font-size:1.2em;
+}
+
+/*===============================================================================*/
+.search, .contact, .send, .login, .register{
+  background-color: #FF6F59;
+  color:#073B4C;
+  font-size:1em;
+  box-shadow: 0rem 0.3rem 0.4rem  rgba( 0, 0, 0, 0.05 );
+}
+.contact, .send, .login, .register{
+  transition:all .5s ease;
+}
+.contact:hover, .send:hover, .login:hover, .register:hover{
+  transform: scale(1.02);
 }
