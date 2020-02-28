@@ -9,7 +9,7 @@ from flaskTest.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-@app.route("/", methods=['GET', 'POST'])
+
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     posts = Post.query.all()
@@ -24,7 +24,7 @@ def home():
     return render_template('home.html', posts=posts, form=form)
 
 
-@app.route("/landing", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def landing():
     return render_template('landing.html')
 
