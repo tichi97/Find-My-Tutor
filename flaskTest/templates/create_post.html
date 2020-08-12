@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {%block content%}
-    <div class = "content-section">
+<div class='container'>
+    <div class = "content-section shadow p-5 mb-5 bg-white">
         <form method ="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
@@ -8,68 +9,56 @@
                     {{ legend }}
                 </legend>
                 <div class="form-group">
-                    {{form.title.label(class="form-control-label")}}
-                    {%if form.title.errors%}
-                        {{form.title(class="form-control form-control-lg is-invalid")}}
+                    {{form.subject.label(class="form-control-label")}}
+                    {%if form.subject.errors%}
+                        {{form.subject(class="form-control form-control-lg is-invalid")}}
                         <div class="invalid-feedback">
-                            {% for error in form.title.errors%}
+                            {% for error in form.subject.errors%}
                                 <span>{{error}}</span>
                             {%endfor%}
                         </div>
                     {%else%}
-                        {{form.title(class="form-control form-control-lg")}}
+                        {{form.subject(class="form-control form-control-lg")}}
                     {%endif%}
                 </div>
                 <div class="form-group">
-                    {{form.times.label(class="form-control-label")}}
-                    {%if form.times.errors%}
-                        {{form.times(class="form-control form-control-lg is-invalid")}}
+                    {{form.topics.label(class="form-control-label")}}
+                    {%if form.topics.errors%}
+                        {{form.topics(class="form-control form-control-lg is-invalid")}}
                         <div class="invalid-feedback">
-                            {% for error in form.times.errors%}
+                            {% for error in form.topics.errors%}
                                 <span>{{error}}</span>
                             {%endfor%}
                         </div>
                     {%else%}
-                        {{form.times(class="form-control form-control-lg")}}
+                        {{form.topics(class="form-control form-control-lg")}}
                     {%endif%}
                 </div>
+                
                 <div class="form-group">
-                    {{form.location.label(class="form-control-label")}}
-                    {%if form.location.errors%}
-                        {{form.location(class="form-control form-control-lg is-invalid")}}
+                    {{form.grades.label(class="form-control-label")}}
+                    {%if form.grades.errors%}
+                        {{form.grades(class="form-control form-control-lg is-invalid")}}
                         <div class="invalid-feedback">
-                            {% for error in form.location.errors%}
+                            {% for error in form.grades.errors%}
                                 <span>{{error}}</span>
                             {%endfor%}
                         </div>
                     {%else%}
-                        {{form.location(class="form-control form-control-lg")}}
+                        {{form.grades(class="form-control form-control-lg")}}
                     {%endif%}
                 </div>
                 <div class="form-group">
-                    {{form.experience.label(class="form-control-label")}}
-                    {%if form.experience.errors%}
-                        {{form.experience(class="form-control form-control-lg is-invalid")}}
+                    {{form.style.label(class="form-control-label")}}
+                    {% if form.style.errors %}
+                        {{form.style(class="form-control form-control-lg is-invalid")}}
                         <div class="invalid-feedback">
-                            {% for error in form.experience.errors%}
-                                <span>{{error}}</span>
-                            {%endfor%}
-                        </div>
-                    {%else%}
-                        {{form.experience(class="form-control form-control-lg")}}
-                    {%endif%}
-                </div>
-                <div class="form-group">
-                    {{form.content.label(class="form-control-label")}}
-                    {% if form.content.errors %}
-                        {{form.content(class="form-control form-control-lg is-invalid")}}
-                        <div class="invalid-feedback">
-                            {% for error in form.content.errors %}
+                            {% for error in form.style.errors %}
                                 <span>{{error}}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{form.content(class="form-control form-control-lg")}}
+                        {{form.style(class="form-control form-control-lg")}}
                     {% endif %}
                 </div>
             </fieldset>
@@ -78,4 +67,5 @@
             </div>
         </form>
     </div>
+</div>
 {%endblock content%}

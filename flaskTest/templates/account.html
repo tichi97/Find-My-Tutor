@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {%block content%}
-     <div class="content-section">
+ <div class='container'>
+    <div class = "content-section shadow p-5 mb-5 bg-white">
       <div class="media">
         <img class="rounded-circle account-img" src="{{ image_file }}">
         <div class="media-body">
@@ -40,6 +41,19 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
+                    {{form.location.label(class="form-control-label")}}
+                    {%if form.location.errors%}
+                        {{form.location(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.location.errors%}
+                                <span>{{error}}</span>
+                            {%endfor%}
+                        </div>
+                    {%else%}
+                        {{form.location(class="form-control form-control-lg")}}
+                    {%endif%}
+                </div>
+                <div class="form-group">
                     {{ form.picture.label() }}
                     {{ form.picture(class="form-control-file") }}
                     {% if form.picture.errors %}
@@ -54,5 +68,6 @@
             </div>
         </form>
     </div>
+</div>
 
 {%endblock content%}

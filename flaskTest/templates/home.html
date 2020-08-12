@@ -34,10 +34,10 @@
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author.username }}</a>
-              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }} Location: {{post.author.location}}</small>
             </div>
-            <h2 class="article-title">{{ post.title }}</h2>
-            <p class="article-content">Location: {{ post.location }}</p>
+            <h2 class="article-title">{{ post.subject }}</h2>
+            <p class="article-content">Topics: {{ post.topics }}</p>
           </div>
           </button>
         </article>

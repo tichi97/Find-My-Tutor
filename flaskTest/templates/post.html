@@ -6,7 +6,8 @@
     <div class="media-body">
       <div class="article-metadata">
         <a class="mr-2" href="#">{{ post.author.username }}</a>
-        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }} Location: {{post.author.location}}</small>
+
         {% if post.author == current_user %}
           <div>
             <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
@@ -14,13 +15,14 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ post.title }}</h2>
-      <p class="article-content">Available times: {{ post.times }}</p>
-      <p class="article-content">Location: {{ post.location }}</p>
-      <p class="article-content">Experience: {{ post.experience }}</p>
-      <p class="article-content">Teaching Style: {{ post.content }}</p>
+      <h2 class="article-title">{{ post.subject }}</h2>
+      <p class="article-content"><strong>Topics in {{ post.subject }}:</strong> {{ post.topics }}</p>
+      <p class="article-content"><strong>Grades I teach:</strong> {{ post.grades }}</p>
+      <p class="article-content"><strong>My teaching Style:</strong> {{ post.style }}</p>
+      <p>Get in touch with me if you have any more questions!</p>
     </div>
     <a class="btn contact" href="{{ url_for('contact', post_id=post.id) }}">Contact</a>
+
 
   </article>
   </div>
