@@ -25,7 +25,7 @@ def home():
     if request.method == 'POST':
         if form.validate_on_submit():
             search_term = form.search.data.title()
-            qry = db.session.query(Post).filter(Post.title == search_term)
+            qry = db.session.query(Post).filter(Post.subject == search_term)
             results = qry.all()
             return render_template('home.html', title='Results', form=form, posts=results)
     return render_template('home.html', posts=posts, form=form)
