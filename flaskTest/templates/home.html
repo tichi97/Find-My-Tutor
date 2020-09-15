@@ -1,47 +1,43 @@
 {% extends "layout.html" %}
 {% block searchcontent %}
-  <form class="form-inline" method="POST" action="">
-              {{ form.hidden_tag() }}
-            <fieldset class="form-group">
-              <div class="form-group">
-                    {{form.search.label(class="form-control-label")}}
-                    {%if form.search.errors%}
-                        {{form.search(class="form-control mr-sm-2 is-invalid")}}
-                        <div class="invalid-feedback">
-                            {% for error in form.title.errors%}
-                                <span>{{error}}</span>
-                            {%endfor%}
-                        </div>
-                    {%else%}
-                        {{form.search(class="form-control mr-sm-2 rounded-pill")}}
-                    {%endif%}
+    <form class="form-inline" method="POST" action="">
+      {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <div class="form-group">
+            {{form.search.label(class="form-control-label")}}
+            {%if form.search.errors%}
+                {{form.search(class="form-control mr-sm-2 is-invalid")}}
+                <div class="invalid-feedback">
+                    {% for error in form.title.errors%}
+                        <span>{{error}}</span>
+                    {%endfor%}
                 </div>
-              </fieldset>
-              <div class="form-group">
-                    {{form.submit(class="btn search")}}
-              </div>
-              <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
-              <!-- <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button> -->
-            </form>
+            {%else%}
+                {{form.search(class="form-control mr-sm-2 rounded-pill")}}
+            {%endif%}
+        </div>
+      </fieldset>
+      <div class="form-group">
+            {{form.submit(class="btn search")}}
+      </div>
+  </form>
 {%endblock searchcontent%}
 {%block content%}
-<div class='container slide-in mt-4'>
+  <div class='container slide-in mt-4'>
     {% for post in posts %}
-
-        <article class="media content-section shadow p-3 mb-5 bg-white home-article">
-          <button class='w-100 d-flex' onclick="window.location.href='{{ url_for('post', post_id=post.id) }}'">
-          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profilepics/' + post.author.image_file) }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author.username }}</a>
-              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }} Location: {{post.author.location}}</small>
-            </div>
-            <h2 class="article-title">{{ post.subject }}</h2>
-            <p class="article-content">Topics: {{ post.topics }}</p>
-          </div>
-          </button>
-        </article>
-
+    <article class="media content-section shadow p-3 mb-5 bg-white home-article">
+      <button class='w-100 d-flex' onclick="window.location.href='{{ url_for('post', post_id=post.id) }}'">
+      <img class="rounded-circle article-img" src="{{ url_for('static', filename='profilepics/' + post.author.image_file) }}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ post.author.username }}</a>
+          <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }} Location: {{post.author.location}}</small>
+        </div>
+        <h2 class="article-title">{{ post.subject }}</h2>
+        <p class="article-content">Topics: {{ post.topics }}</p>
+      </div>
+      </button>
+    </article>
     {% endfor %}
-</div>
+  </div>
 {%endblock content%}

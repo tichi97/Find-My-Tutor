@@ -78,7 +78,6 @@ class PostForm(FlaskForm):
     
     subject = SelectField('Main subject that you will tutor in',choices=[('Math','Math'),('English','English'),('Science','Science'),('Social Studies','Social Studies'),('Geography','Geography'),('Foreign Languages','Foreign Languages')],
                         validators=[InputRequired()])
-    # subtopics=StringField('Sub-topics that you can tutor in',validators=[InputRequired()])
     topics = StringField('Sub-topics that you tutor in',validators=[InputRequired()])
     
     grades = SelectField('Grade levels that you teach', choices=[('K-5','K-5'), ('6-8','6-8'), ('9-12','9-12')],validators=[InputRequired()])

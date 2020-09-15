@@ -13,9 +13,7 @@ body {
   from { background-position: 0 0; }
   to { background-position: -100% 0; }
 }
-/*h1, h2, h3, h4, h5, h6 {
-  color: #444444;
-}*/
+
 
 .navbar-brand{
   font-family:'Patua One';
